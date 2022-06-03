@@ -1,5 +1,6 @@
 import Coupon from "./Coupon";
 import Cpf from "./Cpf";
+import Freight from "./Freight";
 import Item from "./Item";
 import OrderItem from "./OrderItem";
 
@@ -7,6 +8,7 @@ export default class Order {
   cpf: Cpf;
   orderItems: OrderItem[];
   coupon?: Coupon;
+  freight = new Freight();
 
   constructor(cpf: string, readonly date: Date = new Date()) {
     this.cpf = new Cpf(cpf);
@@ -14,6 +16,7 @@ export default class Order {
   }
 
   addItem(item: Item, quantity: number) {
+    this.freight.addItem(item, quantity);
     this.orderItems.push(new OrderItem(item.idItem, item.price, quantity));
   }
 
@@ -21,6 +24,10 @@ export default class Order {
     if (!coupon.isExpired(this.date)) {
       this.coupon = coupon;
     }
+  }
+
+  getFreight() {
+    return this.freight.getTotal();
   }
 
   getTotal() {
