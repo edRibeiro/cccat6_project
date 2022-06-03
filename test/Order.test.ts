@@ -25,3 +25,13 @@ test("Deve criar um pedido com cupom de desconto (percentual sobre o total do pe
     const total = order.getTotal();
     expect(total).toBe(4872);
 });
+
+test("Deve criar um pedido com cupom de desconto expirado", function () {
+    const order = new Order("935.411.347-80", new Date("21-03-10T10:00:00"));
+    order.addItem(new Item(1, "Gitarra", 1000), 1);
+    order.addItem(new Item(2, "Amplificador", 5000), 1);
+    order.addItem(new Item(3, "Cabo", 30), 3);
+    order.addCoupon(new Coupon("VALE20", 20, new Date("2021-03-01T10:00:00")))
+    const total = order.getTotal();
+    expect(total).toBe(4872);
+});
