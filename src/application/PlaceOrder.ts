@@ -1,6 +1,7 @@
-import ItemRepository from "./ItemRepository";
-import Order from "./Order";
-import OrderRepository from "./OrderRepository";
+import Order from "../domain/entity/Order";
+import ItemRepository from "../domain/repository/ItemRepository";
+import OrderRepository from "../domain/repository/OrderRepository";
+
 
 export default class PlaceOrder {
   constructor(readonly itemRepository: ItemRepository, readonly orderRepository: OrderRepository) {}

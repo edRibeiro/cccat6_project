@@ -1,8 +1,9 @@
-import Dimension from "../src/Dimension";
-import Item from "../src/Item";
-import ItemRepositoryMemory from "../src/ItemRespositoryMemory";
-import OrderRepositoryMemory from "../src/OrderRepositoryMemory";
-import PlaceOrder from "../src/PlaceOrder";
+import Dimension from "../../src/domain/entity/Dimension";
+import Item from "../../src/domain/entity/Item";
+
+import OrderRepositoryMemory from "../../src/infrastructure/repository/memory/OrderRepositoryMemory";
+import PlaceOrder from "../../src/application/PlaceOrder";
+import ItemRepositoryMemory from "../../src/infrastructure/repository/memory/ItemRespositoryMemory";
 
 test("deve fazer um pedido", async function () {
   const itemRepository = new ItemRepositoryMemory();

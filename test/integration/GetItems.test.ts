@@ -1,7 +1,8 @@
-import Dimension from "../src/Dimension";
-import GetItems from "../src/GetItems";
-import Item from "../src/Item";
-import ItemRepositoryMemory from "../src/ItemRespositoryMemory";
+import GetItems from "../../src/application/GetItems";
+import Dimension from "../../src/domain/entity/Dimension";
+import Item from "../../src/domain/entity/Item";
+import ItemRepositoryMemory from "../../src/infrastructure/repository/memory/ItemRespositoryMemory";
+
 
 test("deve buscar os itens", async function () {
   const itemRepository = new ItemRepositoryMemory();
